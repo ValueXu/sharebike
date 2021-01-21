@@ -4,10 +4,22 @@ import './index.css';
 //import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Router from './router'
+// import configureStore from './redux/store/configureStore'
+// import {Provider} from 'react-redux'
+// const store=configureStore();
+
+// 通过ConfigProvider设置语言为中文
+import zh_CN from 'antd/lib/locale-provider/zh_CN'
+import {ConfigProvider} from 'antd';
 
 ReactDOM.render(
+  // <Provider store={store}>
+  //   <Router/>
+  // </Provider>,
   <React.StrictMode>
-    <Router />,
+    <ConfigProvider locale={zh_CN}>
+      <Router />
+    </ConfigProvider>,
   </React.StrictMode>,
   document.getElementById('root')
 );

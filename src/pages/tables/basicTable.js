@@ -115,11 +115,11 @@ export default class BasicTable extends React.Component {
     this.setState({
       dataSource: data,
     });
-    this.require();
+    this.request();
   }
 
   //动态获取mock数据
-  require = () => {
+  request = () => {
     let _this=this;
     this.setState({ loading: true });
     axios
@@ -142,10 +142,11 @@ export default class BasicTable extends React.Component {
             selectedCheckboxRowKeys: [],
             selectedRadioItem: [],
             selectedCheckboxItem: [],
+            //设置分页的页脚的内容
             pagination:Utils.pagination(res,(current)=>{
               //to-do
               _this.params.page=current;
-              _this.require();
+              _this.request();
             })
           });
         }
@@ -177,7 +178,7 @@ export default class BasicTable extends React.Component {
       content: `您确定要删除这些数据吗？${ids.join(',')}`,
       onOk: () => {
         message.success("删除成功");
-        this.require();
+        this.request();
       },
       okText:"确定",
       cancelText:"取消"
@@ -256,13 +257,15 @@ export default class BasicTable extends React.Component {
             rowSelection={rowCheckboxSelection}
           />
         </Card>
-        <Card title="Mock-分页" style={{ margin: "10px 0" }}>
+        <Card title="Mock-分页（页码不改变是因为mock数据返回的page页码写死了在1）" style={{ margin: "10px 0" }}>
           <Table
             columns={colums}
             dataSource={this.state.dataSource2}
             bordered
             rowKey={(colums) => colums.id}
+            // 分页用的组件封装了
             pagination={this.state.pagination}
+            loading={this.state.loading}
           />
         </Card>
       </div>
