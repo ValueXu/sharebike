@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter, Route, Switch } from "react-router-dom";
 import App from "./App";
 import Admin from "./admin";
+import Common from "./common";
 import NoMatch from "./pages/nomatch";
 import Login from "./pages/login";
 import Buttons from "./pages/ui/buttons";
@@ -15,7 +16,10 @@ import Carousel from "./pages/ui/carousel";
 import FormLogin from "./pages/form/login";
 import FormReg from "./pages/form/reg";
 import BasicTable from "./pages/tables/basicTable";
-import HighTable from "./pages/tables/highTable"
+import HighTable from "./pages/tables/highTable";
+import City from "./pages/city/city.jsx";
+import Order from "./pages/order/order.jsx";
+import OrderDetail from "./pages/order/detail.jsx";
 
 export default class IRouter extends React.Component {
   render() {
@@ -29,28 +33,50 @@ export default class IRouter extends React.Component {
             <Route path="/login" component={Login}></Route>
             <Route
               path="/admin"
-              render={() => (
-                <Admin>
-                  <Switch>
-                    <Route path="/admin/ui/buttons" component={Buttons} />
-                    <Route path="/admin/ui/modals" component={Modals} />
-                    <Route path="/admin/ui/loadings" component={Loading} />
+              render={() => {
+                return (
+                  <Admin>
+                    <Switch>
+                      <Route path="/admin/ui/buttons" component={Buttons} />
+                      <Route path="/admin/ui/modals" component={Modals} />
+                      <Route path="/admin/ui/loadings" component={Loading} />
+                      <Route
+                        path="/admin/ui/notification"
+                        component={Notification}
+                      />
+                      <Route path="/admin/ui/messages" component={Message} />
+                      <Route path="/admin/ui/tabs" component={Tabs} />
+                      <Route path="/admin/ui/gallery" component={Gallery} />
+                      <Route path="/admin/ui/carousel" component={Carousel} />
+
+                      <Route path="/admin/form/login" component={FormLogin} />
+                      <Route path="/admin/form/reg" component={FormReg} />
+
+                      <Route path="/admin/table/basic" component={BasicTable} />
+                      <Route path="/admin/table/high" component={HighTable} />
+
+                      <Route path="/admin/city" component={City} />
+
+                      <Route path="/admin/order" component={Order} />
+
+                      <Route component={NoMatch} />
+                    </Switch>
+                  </Admin>
+                );
+              }}
+            ></Route>
+            <Route
+              path="/common"
+              render={() => {
+                return (
+                  <Common>
                     <Route
-                      path="/admin/ui/notification"
-                      component={Notification}
+                      path="/common/order/detail/:orderId"
+                      component={OrderDetail}
                     />
-                    <Route path="/admin/ui/messages" component={Message} />
-                    <Route path="/admin/ui/tabs" component={Tabs} />
-                    <Route path="/admin/ui/gallery" component={Gallery} />
-                    <Route path="/admin/ui/carousel" component={Carousel} />
-                    <Route path="/admin/form/login" component={FormLogin} />
-                    <Route path="/admin/form/reg" component={FormReg} />
-                    <Route path="/admin/table/basic" component={BasicTable}/>
-                    <Route path="/admin/table/high" component={HighTable}/>
-                    <Route component={NoMatch} />
-                  </Switch>
-                </Admin>
-              )}
+                  </Common>
+                );
+              }}
             ></Route>
             <Route path="/order/detail" component={Login}></Route>
             <Route component={NoMatch} />

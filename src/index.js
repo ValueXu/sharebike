@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
 //import App from './App';
-import * as serviceWorker from './serviceWorker';
-import Router from './router'
+import * as serviceWorker from "./serviceWorker";
+import Router from "./router";
 // import configureStore from './redux/store/configureStore'
 // import {Provider} from 'react-redux'
 // const store=configureStore();
 
 // 通过ConfigProvider设置语言为中文
-import zh_CN from 'antd/lib/locale-provider/zh_CN'
-import {ConfigProvider} from 'antd';
+import zh_CN from "antd/lib/locale-provider/zh_CN";
+import { ConfigProvider } from "antd";
 
 ReactDOM.render(
   // <Provider store={store}>
@@ -19,9 +19,10 @@ ReactDOM.render(
   <React.StrictMode>
     <ConfigProvider locale={zh_CN}>
       <Router />
-    </ConfigProvider>,
+    </ConfigProvider>
+    ,
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
