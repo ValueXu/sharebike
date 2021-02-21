@@ -1,6 +1,16 @@
 @import './default.less';
 @import './loading.less';
-
+ul,li{
+    list-style: none;
+}
+.clearfix{
+    &::after{
+        content: "";
+        clear: both;
+        display: block;
+        visibility: hidden;
+    }
+}
 .container{
     //display:flex;
     .nav-left{
@@ -23,5 +33,15 @@
         display: block;
         //align-items: center;
         // justify-content: center;
+    }
+}
+
+.content-wrap{
+    background-color: #ffffff;
+    border:1px solid #e8e8e8;
+    margin-top: -3px;
+    .antd-table-wrapper{
+        margin-left: -1px;
+        margin-right: -2px;
     }
 }

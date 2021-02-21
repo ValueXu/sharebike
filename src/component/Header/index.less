@@ -7,6 +7,18 @@
         line-height: 60px;
         padding: 0 20px;
         text-align: right;
+        .logo{
+            line-height: 60px;
+            text-align: left;
+            font-size: 18px;
+            img{
+                height: 40px;
+                vertical-align: middle;
+            }
+            span{
+                margin-left: 15px;
+            }
+        }
         a{
             margin-left: 40px;
         }
@@ -46,5 +58,21 @@
                 vertical-align: middle;
             }         
         }
+    }
+}
+
+// common简单头样式
+.simple-page{
+    .header{
+        width: 100%;
+    }
+    .header-top{
+        background: #1890ff;
+        color:@colorM;
+    }
+    .ant-form,
+    .ant-col-12,
+    .weather{
+        display: none;
     }
 }
