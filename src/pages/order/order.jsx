@@ -178,7 +178,13 @@ export default class Order extends React.Component {
           />
         </Card>
         <Card style={{ marginTop: 10 }}>
-          <Button onClick={this.openOrderDetail}>订单详情</Button>
+          <Button
+            onClick={this.openOrderDetail}
+            style={{ marginRight: 20 }}
+            type="primary"
+          >
+            订单详情
+          </Button>
           <Button>结束订单</Button>
         </Card>
         <div className="content-wrap">

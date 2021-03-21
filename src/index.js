@@ -9,18 +9,21 @@ import Router from "./router";
 // const store=configureStore();
 
 // 通过ConfigProvider设置语言为中文
-import zh_CN from "antd/lib/locale-provider/zh_CN";
+import zhCN from "antd/lib/locale/zh_CN";
 import { ConfigProvider } from "antd";
+import moment from "moment";
+import "moment/locale/zh-cn";
+
+moment.locale("zh-cn");
 
 ReactDOM.render(
   // <Provider store={store}>
   //   <Router/>
   // </Provider>,
   <React.StrictMode>
-    <ConfigProvider locale={zh_CN}>
+    <ConfigProvider locale={zhCN}>
       <Router />
     </ConfigProvider>
-    ,
   </React.StrictMode>,
   document.getElementById("root")
 );

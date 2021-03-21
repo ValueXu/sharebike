@@ -13,7 +13,7 @@ export default class Axios {
       data: data,
       isMock: true,
     }).then((data) => {
-      if (data && data.result) {
+      if (data && data.result&&data.result.item_list) {
         let list = data.result.item_list.map((item, index) => {
           item.key = index;
           return item;

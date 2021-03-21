@@ -9,6 +9,13 @@
   dependencies:
     "@ctrl/tinycolor" "^3.1.6"
 
+"@ant-design/colors@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.npm.taobao.org/@ant-design/colors/download/@ant-design/colors-6.0.0.tgz?cache=0&sync_timestamp=1612935512117&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Fcolors%2Fdownload%2F%40ant-design%2Fcolors-6.0.0.tgz#9b9366257cffcc47db42b9d0203bb592c13c0298"
+  integrity sha1-m5NmJXz/zEfbQrnQIDu1ksE8Apg=
+  dependencies:
+    "@ctrl/tinycolor" "^3.4.0"
+
 "@ant-design/css-animation@^1.7.2":
   version "1.7.3"
   resolved "https://registry.npm.taobao.org/@ant-design/css-animation/download/@ant-design/css-animation-1.7.3.tgz?cache=0&sync_timestamp=1596104822487&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Fcss-animation%2Fdownload%2F%40ant-design%2Fcss-animation-1.7.3.tgz#60a1c970014e86b28f940510d69e503e428f1136"
@@ -25,6 +32,18 @@
   integrity sha1-Qg4M1SdIbA/lf4ExDWgZUPxM+s8=
   dependencies:
     "@ant-design/colors" "^5.0.0"
+    "@ant-design/icons-svg" "^4.0.0"
+    "@babel/runtime" "^7.11.2"
+    classnames "^2.2.6"
+    insert-css "^2.0.0"
+    rc-util "^5.0.1"
+
+"@ant-design/icons@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.npm.taobao.org/@ant-design/icons/download/@ant-design/icons-4.5.0.tgz#dc5ceff85503932265143dc5c3013167daa3f754"
+  integrity sha1-3Fzv+FUDkyJlFD3FwwExZ9qj91Q=
+  dependencies:
+    "@ant-design/colors" "^6.0.0"
     "@ant-design/icons-svg" "^4.0.0"
     "@babel/runtime" "^7.11.2"
     classnames "^2.2.6"
@@ -1205,6 +1224,11 @@
   resolved "https://registry.npm.taobao.org/@ctrl/tinycolor/download/@ctrl/tinycolor-3.1.7.tgz#1585f67629882002a9f8e15a2941c9a4321bf80c"
   integrity sha1-FYX2dimIIAKp+OFaKUHJpDIb+Aw=
 
+"@ctrl/tinycolor@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.npm.taobao.org/@ctrl/tinycolor/download/@ctrl/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
+  integrity sha1-w8WuVDyJfKqcKmhjC+01W+X5mQ8=
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.npm.taobao.org/@hapi/address/download/@hapi/address-2.1.4.tgz?cache=0&sync_timestamp=1603524710662&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hapi%2Faddress%2Fdownload%2F%40hapi%2Faddress-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -2064,7 +2088,7 @@ ansi-escapes@^3.0.0:
   resolved "https://registry.npm.taobao.org/ansi-escapes/download/ansi-escapes-3.2.0.tgz?cache=0&sync_timestamp=1583072804444&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fansi-escapes%2Fdownload%2Fansi-escapes-3.2.0.tgz#8780b98ff9dbf5638152d1f1fe5c1d7b4442976b"
   integrity sha1-h4C5j/nb9WOBUtHx/lwde0RCl2s=
 
-ansi-escapes@^4.2.1:
+ansi-escapes@^4.2.1, ansi-escapes@^4.3.1:
   version "4.3.1"
   resolved "https://registry.npm.taobao.org/ansi-escapes/download/ansi-escapes-4.3.1.tgz?cache=0&sync_timestamp=1583072804444&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fansi-escapes%2Fdownload%2Fansi-escapes-4.3.1.tgz#a5c47cc43181f1f38ffd7076837700d395522a61"
   integrity sha1-pcR8xDGB8fOP/XB2g3cA05VSKmE=
@@ -3091,6 +3115,11 @@ ci-info@^2.0.0:
   resolved "https://registry.npm.taobao.org/ci-info/download/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha1-Z6npZL4xpR4V5QENWObxKDQAL0Y=
 
+ci-info@^3.0.0:
+  version "3.1.1"
+  resolved "https://registry.npm.taobao.org/ci-info/download/ci-info-3.1.1.tgz#9a32fcefdf7bcdb6f0a7e1c0f8098ec57897b80a"
+  integrity sha1-mjL87997zbbwp+HA+AmOxXiXuAo=
+
 cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/cipher-base/download/cipher-base-1.0.4.tgz#8760e4ecc272f4c363532f926d874aae2c1397de"
@@ -3346,6 +3375,11 @@ connect-history-api-fallback@^1.6.0:
   version "1.6.0"
   resolved "https://registry.npm.taobao.org/connect-history-api-fallback/download/connect-history-api-fallback-1.6.0.tgz#8b32089359308d111115d81cad3fceab888f97bc"
   integrity sha1-izIIk1kwjRERFdgcrT/Oq4iPl7w=
+
+consola@^2.15.0:
+  version "2.15.3"
+  resolved "https://registry.npm.taobao.org/consola/download/consola-2.15.3.tgz#2e11f98d6a4be71ff72e0bdf07bd23e12cb61550"
+  integrity sha1-LhH5jWpL5x/3LgvfB70j4Sy2FVA=
 
 console-browserify@^1.1.0:
   version "1.2.0"
@@ -4780,7 +4814,7 @@ figgy-pudding@^3.5.1:
   resolved "https://registry.npm.taobao.org/figgy-pudding/download/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
   integrity sha1-tO7oFIq7Adzx0aw0Nn1Z4S+mHW4=
 
-figures@^3.0.0:
+figures@^3.0.0, figures@^3.2.0:
   version "3.2.0"
   resolved "https://registry.npm.taobao.org/figures/download/figures-3.2.0.tgz#625c18bd293c604dc4a8ddb2febf0c88341746af"
   integrity sha1-YlwYvSk8YE3EqN2y/r8MiDQXRq8=
@@ -8857,6 +8891,11 @@ pretty-format@^26.6.2:
     ansi-styles "^4.0.0"
     react-is "^17.0.1"
 
+pretty-time@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npm.taobao.org/pretty-time/download/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
+  integrity sha1-/7dCmvq7hTXDRqNOQYc63z103Q4=
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.npm.taobao.org/process-nextick-args/download/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
@@ -10526,6 +10565,13 @@ static-extend@^0.1.1:
   resolved "https://registry.npm.taobao.org/statuses/download/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
 
+std-env@^2.2.1:
+  version "2.3.0"
+  resolved "https://registry.npm.taobao.org/std-env/download/std-env-2.3.0.tgz#66d4a4a4d5224242ed8e43f5d65cfa9095216eee"
+  integrity sha1-ZtSkpNUiQkLtjkP11lz6kJUhbu4=
+  dependencies:
+    ci-info "^3.0.0"
+
 stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/stealthy-require/download/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
@@ -11473,6 +11519,20 @@ webpack@4.42.0:
     watchpack "^1.6.0"
     webpack-sources "^1.4.1"
 
+webpackbar@^5.0.0-3:
+  version "5.0.0-3"
+  resolved "https://registry.npm.taobao.org/webpackbar/download/webpackbar-5.0.0-3.tgz?cache=0&sync_timestamp=1604357282892&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpackbar%2Fdownload%2Fwebpackbar-5.0.0-3.tgz#f4f96c8fb13001b2bb1348252db4c980ab93aaac"
+  integrity sha1-9Plsj7EwAbK7E0glLbTJgKuTqqw=
+  dependencies:
+    ansi-escapes "^4.3.1"
+    chalk "^4.1.0"
+    consola "^2.15.0"
+    figures "^3.2.0"
+    pretty-time "^1.1.0"
+    std-env "^2.2.1"
+    text-table "^0.2.0"
+    wrap-ansi "^7.0.0"
+
 websocket-driver@>=0.5.1:
   version "0.7.4"
   resolved "https://registry.npm.taobao.org/websocket-driver/download/websocket-driver-0.7.4.tgz#89ad5295bbf64b480abcba31e4953aca706f5760"
@@ -11711,6 +11771,15 @@ wrap-ansi@^5.1.0:
     ansi-styles "^3.2.0"
     string-width "^3.0.0"
     strip-ansi "^5.0.0"
+
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.npm.taobao.org/wrap-ansi/download/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha1-Z+FFz/UQpqaYS98RUpEdadLrnkM=
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
 
 wrappy@1:
   version "1.0.2"

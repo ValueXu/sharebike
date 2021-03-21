@@ -55,4 +55,23 @@ export default {
     });
     return options;
   },
+  /**
+   * ETable 行点击通用函数
+   * @param {*选中行的索引} selectedRowKeys
+   * @param {*选中行对象} selectedItem
+   */
+  updateSelectedItem(selectedRowKeys, selectedRows, selectedIds) {
+    if (selectedIds) {
+      this.setState({
+        selectedRowKeys,
+        selectedIds: selectedIds,
+        selectedItem: selectedRows,
+      });
+    } else {
+      this.setState({
+        selectedRowKeys,
+        selectedItem: selectedRows,
+      });
+    }
+  },
 };

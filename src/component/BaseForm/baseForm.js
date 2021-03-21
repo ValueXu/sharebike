@@ -100,6 +100,24 @@ export default class BaseForm extends Component {
           );
 
           formItemList.push(CHECKBOX);
+        } else if (item.type === "DATEPICKER") {
+          const DATEPICKER = (
+            <FormItem
+              label={label}
+              name={field}
+              key={field}
+              initialValue={initialValue}
+            >
+              <DatePicker
+                showTime={true}
+                placeholder={placeholder}
+                format="YYYY-MM-DD HH:mm:ss"
+                style={{ width: 120 }}
+              />
+            </FormItem>
+          );
+
+          formItemList.push(DATEPICKER);
         }
       });
     }
