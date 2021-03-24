@@ -22,6 +22,9 @@ import Order from "./pages/order/order.jsx";
 import OrderDetail from "./pages/order/detail.jsx";
 import User from "./pages/user/user";
 import BikeMap from "./pages/map/bikeMap";
+import Bar from "./pages/echarts/bar/bar";
+import Pie from "./pages/echarts/pie/pie";
+import Line from "./pages/echarts/line/line";
 
 export default class IRouter extends React.Component {
   render() {
@@ -64,6 +67,10 @@ export default class IRouter extends React.Component {
                       <Route path="/admin/user" component={User} />
 
                       <Route path="/admin/bikeMap" component={BikeMap} />
+
+                      <Route path="/admin/echarts/bar" component={Bar} />
+                      <Route path="/admin/echarts/pie" component={Pie} />
+                      <Route path="/admin/echarts/line" component={Line} />
 
                       <Route component={NoMatch} />
                     </Switch>
