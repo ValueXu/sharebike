@@ -79,6 +79,32 @@ export default class Line extends Component {
     return option;
   };
 
+  getOptions3 = () => {
+    let option = {
+      title: { text: "用户骑行订单" },
+      tooltip: {
+        trigger: "axis",
+      },
+      xAxis: {
+        //   X轴从0开始
+        boundaryGap: false,
+        data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+      },
+      yAxis: {
+        type: "value",
+      },
+      series: [
+        {
+          name: "订单量",
+          type: "line",
+          data: [1000, 2000, 1500, 3000, 2000, 1500, 800],
+          areaStyle: {},
+        },
+      ],
+    };
+    return option;
+  };
+
   componentWillMount() {
     echarts.registerTheme("echartTheme", echartTheme);
   }
@@ -105,13 +131,13 @@ export default class Line extends Component {
           />
         </Card>
         <Card title="折线图之三" style={{ marginTop: 10 }}>
-          {/* <ReactEChartsCore
+          <ReactEChartsCore
             echarts={echarts}
             option={this.getOptions3()}
             lazyUpdate={true}
             theme={"echartTheme"}
             style={{ height: 500 }}
-          /> */}
+          />
         </Card>
       </div>
     );
