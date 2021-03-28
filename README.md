@@ -3,7 +3,7 @@
 The project is a mission from my teacher. 
 It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 All data comes from [fastmoke.site](https://www.fastmoke.site) using my own key. 
-I cant promise the development mock will be usefull. So, if you wanna try this project, please change the baseAPI in '/src/axios/index.js'. If I have some free time, I'll upload the moke profiles. 
+I cant promise the development mock data will be usefull. So, if you wanna try this project, please change the baseAPI in '/src/axios/index.js'. If I have some free time, I'll upload the moke profiles. 
 
 ## Available Scripts
 
