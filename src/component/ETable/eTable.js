@@ -4,6 +4,11 @@ import { Table } from "antd";
 import "./eTable.less";
 
 export default class ETable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   state = {};
   //处理行点击事件
   onRowClick = (record, index) => {
@@ -141,7 +146,7 @@ export default class ETable extends React.Component {
       //设置类型未复选框
       rowSelection.type = "checkbox";
     } else {
-      //默认未单选
+      //默认为单选
       row_selection = "radio";
     }
     return (

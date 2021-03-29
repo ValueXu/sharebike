@@ -119,7 +119,7 @@ const menuList = [
   },
   {
     title: "权限设置",
-    key: "/permission",
+    key: "/admin/permission",
   },
 ];
 export default menuList;

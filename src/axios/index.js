@@ -8,23 +8,28 @@ export default class Axios {
     var data = {
       params: params,
     };
-    this.ajax({
+    return this.ajax({
       url: url,
       data: data,
       isMock: true,
     }).then((data) => {
-      if (data && data.result&&data.result.item_list) {
+      if (data && data.result && data.result.item_list) {
         let list = data.result.item_list.map((item, index) => {
           item.key = index;
           return item;
         });
-        _this.setState({
-          list,
-          pagination: Utils.pagination(data, (currentPage) => {
-            _this.params.page = currentPage;
-            _this.requestList();
-          }),
-        });
+        _this.setState(
+          {
+            list,
+            pagination: Utils.pagination(data, (currentPage) => {
+              _this.params.page = currentPage;
+              _this.requestList();
+            }),
+          },
+          () => {
+            // console.log("statelist", _this.state.list);
+          }
+        );
       }
     });
   }
@@ -58,7 +63,7 @@ export default class Axios {
     } else {
       baseApi =
         "https://www.fastmock.site/mock/895d6fbc3134a9583b58930d5f7a0f37/sharebike";
-        console.log("当前使用的是后端的API");
+      console.log("当前使用的是后端的API");
     }
 
     return new Promise((resolve, reject) => {
