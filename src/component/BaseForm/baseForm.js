@@ -34,7 +34,12 @@ export default class BaseForm extends Component {
         switch (item.type) {
           case "时间查询": {
             const begin_time = (
-              <FormItem label="订单时间" key={field} name="begin_time">
+              <FormItem
+                label="订单时间"
+                // 后面加字符串是因为React中用react元素数组返回的兄弟组件如果相邻需要添加key
+                key={field + "_begin"}
+                name="begin_time"
+              >
                 <DatePicker
                   showTime={true}
                   placeholder={placeholder}
@@ -45,7 +50,12 @@ export default class BaseForm extends Component {
             );
             formItemList.push(begin_time);
             const end_time = (
-              <FormItem label="~" colon={false} key={field} name="end_time">
+              <FormItem
+                label="~"
+                colon={false}
+                key={field + "_end"}
+                name="end_time"
+              >
                 <DatePicker
                   showTime={true}
                   placeholder={placeholder}

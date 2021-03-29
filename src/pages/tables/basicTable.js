@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Table, Modal, Button, message } from "antd";
 import axios from "./../../axios/index";
-import Utils from '../../utils/utils.js';
+import Utils from "../../utils/utils.js";
 
 const colums = [
   {
@@ -73,12 +73,12 @@ export default class BasicTable extends React.Component {
     selectedCheckboxRowKeys: [],
     selectedRadioItem: [],
     selectedCheckboxItem: [],
-    pagination:{}
+    pagination: {},
   };
-  params={
+  params = {
     //URL的参数
-    page:1,
-  }
+    page: 1,
+  };
   componentDidMount() {
     const data = [
       {
@@ -120,7 +120,7 @@ export default class BasicTable extends React.Component {
 
   //动态获取mock数据
   request = () => {
-    let _this=this;
+    let _this = this;
     this.setState({ loading: true });
     axios
       .ajax({
@@ -143,15 +143,14 @@ export default class BasicTable extends React.Component {
             selectedRadioItem: [],
             selectedCheckboxItem: [],
             //设置分页的页脚的内容
-            pagination:Utils.pagination(res,(current)=>{
+            pagination: Utils.pagination(res, (current) => {
               //to-do
-              _this.params.page=current;
+              _this.params.page = current;
               _this.request();
-            })
+            }),
           });
         }
       });
-
   };
 
   onRowClick = (record, index) => {
@@ -175,13 +174,13 @@ export default class BasicTable extends React.Component {
     });
     Modal.confirm({
       title: "删除提示",
-      content: `您确定要删除这些数据吗？${ids.join(',')}`,
+      content: `您确定要删除这些数据吗？${ids.join(",")}`,
       onOk: () => {
         message.success("删除成功");
         this.request();
       },
-      okText:"确定",
-      cancelText:"取消"
+      okText: "确定",
+      cancelText: "取消",
     });
   };
 
@@ -191,6 +190,10 @@ export default class BasicTable extends React.Component {
     const rowRadioSelection = {
       type: "radio",
       selectedRowKeys: selectedRadioRowKeys,
+      onChange: (index, record) => {
+        // 参数顺序相反，需要换位
+        this.onRowClick(record[0], index[0]);
+      },
     };
     const rowCheckboxSelection = {
       type: "checkbox",
@@ -244,7 +247,7 @@ export default class BasicTable extends React.Component {
           />
         </Card>
         <Card title="Mock-复选" style={{ margin: "10px 0" }}>
-          <div style={{marginBottom:'10px'}}>
+          <div style={{ marginBottom: "10px" }}>
             <Button onClick={this.handleCheckboxDelete}>删除</Button>
           </div>
           <Table
@@ -257,7 +260,10 @@ export default class BasicTable extends React.Component {
             rowSelection={rowCheckboxSelection}
           />
         </Card>
-        <Card title="Mock-分页（页码不改变是因为mock数据返回的page页码写死了在1）" style={{ margin: "10px 0" }}>
+        <Card
+          title="Mock-分页（页码不改变是因为mock数据返回的page页码写死了在1）"
+          style={{ margin: "10px 0" }}
+        >
           <Table
             columns={colums}
             dataSource={this.state.dataSource2}

@@ -1,10 +1,11 @@
 import React from "react";
-import { HashRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 import App from "./App";
 import Admin from "./admin";
 import Common from "./common";
 import NoMatch from "./pages/nomatch";
 import Login from "./pages/login";
+import Home from "./pages/home";
 import Buttons from "./pages/ui/buttons";
 import Modals from "./pages/ui/modals";
 import Loading from "./pages/ui/loading";
@@ -39,52 +40,6 @@ export default class IRouter extends React.Component {
                         </Route> */}
             <Route path="/login" component={Login}></Route>
             <Route
-              path="/admin"
-              render={() => {
-                return (
-                  <Admin>
-                    <Switch>
-                      <Route path="/admin/ui/buttons" component={Buttons} />
-                      <Route path="/admin/ui/modals" component={Modals} />
-                      <Route path="/admin/ui/loadings" component={Loading} />
-                      <Route
-                        path="/admin/ui/notification"
-                        component={Notification}
-                      />
-                      <Route path="/admin/ui/messages" component={Message} />
-                      <Route path="/admin/ui/tabs" component={Tabs} />
-                      <Route path="/admin/ui/gallery" component={Gallery} />
-                      <Route path="/admin/ui/carousel" component={Carousel} />
-
-                      <Route path="/admin/form/login" component={FormLogin} />
-                      <Route path="/admin/form/reg" component={FormReg} />
-
-                      <Route path="/admin/table/basic" component={BasicTable} />
-                      <Route path="/admin/table/high" component={HighTable} />
-
-                      <Route path="/admin/city" component={City} />
-
-                      <Route path="/admin/order" component={Order} />
-
-                      <Route path="/admin/user" component={User} />
-
-                      <Route path="/admin/bikeMap" component={BikeMap} />
-
-                      <Route path="/admin/echarts/bar" component={Bar} />
-                      <Route path="/admin/echarts/pie" component={Pie} />
-                      <Route path="/admin/echarts/line" component={Line} />
-
-                      <Route path="/admin/rich" component={RichText} />
-
-                      <Route path="/admin/permission" component={Permission} />
-
-                      <Route component={NoMatch} />
-                    </Switch>
-                  </Admin>
-                );
-              }}
-            ></Route>
-            <Route
               path="/common"
               render={() => {
                 return (
@@ -97,7 +52,53 @@ export default class IRouter extends React.Component {
                 );
               }}
             ></Route>
-            <Route path="/order/detail" component={Login}></Route>
+            <Route
+              path="/"
+              render={() => {
+                return (
+                  <Admin>
+                    <Switch>
+                      <Route path="/home" component={Home} />
+
+                      <Route path="/ui/buttons" component={Buttons} />
+                      <Route path="/ui/modals" component={Modals} />
+                      <Route path="/ui/loadings" component={Loading} />
+                      <Route path="/ui/notification" component={Notification} />
+                      <Route path="/ui/messages" component={Message} />
+                      <Route path="/ui/tabs" component={Tabs} />
+                      <Route path="/ui/gallery" component={Gallery} />
+                      <Route path="/ui/carousel" component={Carousel} />
+
+                      <Route path="/form/login" component={FormLogin} />
+                      <Route path="/form/reg" component={FormReg} />
+
+                      <Route path="/table/basic" component={BasicTable} />
+                      <Route path="/table/high" component={HighTable} />
+
+                      <Route path="/city" component={City} />
+
+                      <Route path="/order" component={Order} />
+
+                      <Route path="/user" component={User} />
+
+                      <Route path="/bikeMap" component={BikeMap} />
+
+                      <Route path="/echarts/bar" component={Bar} />
+                      <Route path="/echarts/pie" component={Pie} />
+                      <Route path="/echarts/line" component={Line} />
+
+                      <Route path="/rich" component={RichText} />
+
+                      <Route path="/permission" component={Permission} />
+
+                      <Redirect path="/" to="/home" />
+                      {/* 这里其实下面的404不生效，因为已经被重定向了 */}
+                      <Route component={NoMatch} />
+                    </Switch>
+                  </Admin>
+                );
+              }}
+            ></Route>
             <Route component={NoMatch} />
           </Switch>
         </App>

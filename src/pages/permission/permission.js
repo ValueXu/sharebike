@@ -5,6 +5,7 @@ import Utils from "../../utils/utils";
 import axios from "../../axios/index";
 import RoleForm from "./components/roleForm";
 import PermissionEditForm from "./components/permissionEditForm";
+import RoleAuthForm from "./components/roleAuthForm";
 
 export default class Permission extends Component {
   constructor(props) {
@@ -13,24 +14,32 @@ export default class Permission extends Component {
       list: [],
       isRoleModalVisible: false,
       isPermissionModalVisible: false,
+      isUserModalVisible: false,
     };
     this.roleRef = React.createRef();
     this.permissionEditRef = React.createRef();
+    this.roleAuthRef = React.createRef();
     this.params = {
       page: 1,
     };
   }
 
+  requestList = (params = this.params) => {
+    axios.requestList(this, "/role/list", params);
+  };
+
   componentDidMount() {
     this.requestList();
   }
 
+  // 打开【创建用户】模态框
   handleRole = () => {
     this.setState({
       isRoleModalVisible: true,
     });
   };
 
+  // 提交【创建用户】
   handleRoleSubmit = () => {
     let data = this.roleRef.current.getFieldsValue(true);
     axios
@@ -57,6 +66,7 @@ export default class Permission extends Component {
       });
   };
 
+  // 打开【设置权限】模态框
   handlePermission = () => {
     let item = this.state.selectedItem;
     if (!item) {
@@ -82,6 +92,7 @@ export default class Permission extends Component {
     );
   };
 
+  // 提交【设置权限】模态框
   handlePermissionSubmit = () => {
     let data = this.permissionEditRef.current.getFieldsValue(true);
     data.role_id = this.state.selectedItem.id;
@@ -112,8 +123,95 @@ export default class Permission extends Component {
       });
   };
 
-  requestList = (params = this.params) => {
-    axios.requestList(this, "/role/list", params);
+  // 打开【用户授权】模态框
+  handleUserAuth = () => {
+    let item = this.state.selectedItem;
+    if (!item) {
+      Modal.info({
+        title: "提示",
+        content: "请选择一个角色",
+      });
+      return;
+    }
+    this.setState(
+      {
+        detailInfo: item,
+      },
+      () => {
+        this.getRoleUserList(item.id);
+      }
+    );
+  };
+
+  // 获取当前用户的授权信息
+  getRoleUserList = (id) => {
+    axios
+      .ajax({
+        url: "/role/user_list",
+        data: {
+          params: {
+            id,
+          },
+        },
+      })
+      .then((res) => {
+        if (res.code === "0") {
+          this.setState({
+            isUserModalVisible: true,
+          });
+          this.getAuthUserList(res.result);
+        }
+      });
+  };
+
+  // 筛选用户类型
+  getAuthUserList = (dataSource) => {
+    let mockData = [];
+    const targetKeys = [];
+    if (dataSource && dataSource.length > 0) {
+      mockData = dataSource.map((item) => {
+        const data = {
+          key: item.user_id,
+          title: item.user_name,
+          status: item.status,
+        };
+        if (data.status === 1) {
+          targetKeys.push(data.key);
+        }
+        return data;
+      });
+      this.setState({
+        mockData,
+        targetKeys,
+      });
+    }
+  };
+
+  // 提交【用户授权】模态框
+  handleUserAuthSubmit = () => {
+    let data = {};
+    data.user_ids = this.state.targetKeys;
+    data.role_id = this.state.selectedItem.id;
+    axios
+      .ajax({
+        url: "/role/user_role_edit",
+        data: {
+          params: {
+            ...data,
+          },
+        },
+      })
+      .then((res) => {
+        if (res.code === "0") {
+          message.success({
+            content: "授权成功",
+          });
+          this.setState({
+            isUserModalVisible: false,
+          });
+          this.requestList();
+        }
+      });
   };
 
   render() {
@@ -171,7 +269,11 @@ export default class Permission extends Component {
           >
             设置权限
           </Button>
-          <Button type="primary" style={{ marginRight: 20 }}>
+          <Button
+            type="primary"
+            onClick={this.handleUserAuth}
+            style={{ marginRight: 20 }}
+          >
             用户授权
           </Button>
         </Card>
@@ -196,7 +298,7 @@ export default class Permission extends Component {
             this.setState({ isRoleModalVisible: false });
             this.roleRef.current.resetFields();
           }}
-          width={800}
+          width={380}
         >
           <RoleForm
             // type={this.state.type}
@@ -224,6 +326,31 @@ export default class Permission extends Component {
             patchMenuInfo={(checkedKeys) => {
               this.setState({
                 menuInfo: checkedKeys,
+              });
+            }}
+          />
+        </Modal>
+        <Modal
+          title="用户授权"
+          visible={this.state.isUserModalVisible}
+          width={800}
+          onOk={this.handleUserAuthSubmit}
+          onCancel={() => {
+            this.setState({
+              isUserModalVisible: false,
+            });
+          }}
+        >
+          <RoleAuthForm
+            // type={this.state.type}
+            formRef={this.roleAuthRef}
+            onFinish={this.handlePermissionSubmit}
+            detailInfo={this.state.detailInfo}
+            targetKeys={this.state.targetKeys}
+            mockData={this.state.mockData}
+            patchUserInfo={(targetKeys) => {
+              this.setState({
+                targetKeys,
               });
             }}
           />
