@@ -4,7 +4,7 @@ import './ui.less'
 
 export default class Message extends React.Component{
     showMessage=(type)=>{
-        message[type]("恭喜你，成功进入许伟的系统")
+        message[type]("恭喜你，成功进入ValueXu的系统")
     }
     render(){
         return(

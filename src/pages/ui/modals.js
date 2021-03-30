@@ -20,7 +20,7 @@ export default class modals extends React.Component {
     handleConfirm = (type) => {
         Modal[type]({
             title: "确认？",
-            content: "许伟的React系统的确认框",
+            content: "ValueXu的React系统的确认框",
             OnOk() {
                 console.log("Ok");
             },
@@ -83,7 +83,7 @@ export default class modals extends React.Component {
                         });
                     }}
                 >
-                    <p> 欢迎来到许伟的React系统 </p>
+                    <p> 欢迎来到ValueXu的React系统 </p>
                 </Modal>
                 <Modal
                     title="自定义页脚"
@@ -96,7 +96,7 @@ export default class modals extends React.Component {
                         });
                     }}
                 >
-                    <p> 欢迎来到许伟的React系统 </p>
+                    <p> 欢迎来到ValueXu的React系统 </p>
                 </Modal>
                 <Modal
                     style={{
@@ -110,7 +110,7 @@ export default class modals extends React.Component {
                         });
                     }}
                 >
-                    <p> 欢迎来到许伟的React系统 </p>
+                    <p> 欢迎来到ValueXu的React系统 </p>
                 </Modal>
                 <Modal
                     title="水平垂直居中"
@@ -122,7 +122,7 @@ export default class modals extends React.Component {
                         });
                     }}
                 >
-                    <p> 欢迎来到许伟的React系统 </p>
+                    <p> 欢迎来到ValueXu的React系统 </p>
                 </Modal>
             </div>
         );

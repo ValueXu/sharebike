@@ -16,15 +16,15 @@ export default class Loading extends React.Component{
                     <Spin indicator={icon} style={{marginLeft:10}}/>
                 </Card>
                 <Card title="内容遮罩" className='card-wrap'>
-                    <Alert message="React" description="欢迎来到许伟的React+AntD系统" type="info"/>
+                    <Alert message="React" description="欢迎来到ValueXu的React+AntD系统" type="info"/>
                     <Spin>
-                        <Alert message="React" description="欢迎来到许伟的React+AntD系统" type="warning"/>
+                        <Alert message="React" description="欢迎来到ValueXu的React+AntD系统" type="warning"/>
                     </Spin>
                     <Spin tip="加载中...">
-                        <Alert message="React" description="欢迎来到许伟的React+AntD系统" type="warning"/>
+                        <Alert message="React" description="欢迎来到ValueXu的React+AntD系统" type="warning"/>
                     </Spin>
                     <Spin indicator={icon}>
-                        <Alert message="React" description="欢迎来到许伟的React+AntD系统" type="warning"/>
+                        <Alert message="React" description="欢迎来到ValueXu的React+AntD系统" type="warning"/>
                     </Spin>
                 </Card>
             </div>

@@ -35,7 +35,7 @@ export default class Gallery extends React.Component {
           >
             <Card.Meta
               title={`图片${item}`}
-              description="欢迎来到许伟的React系统"
+              description="欢迎来到ValueXu的React系统"
             />
           </Card>
         );
