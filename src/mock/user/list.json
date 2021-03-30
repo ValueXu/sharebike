@@ -1,0 +1,21 @@
+{
+  "code": "0",
+  "msg": "",
+  "result": {
+    "item_list|20": [
+      {
+        "id|+1": 0,
+        "username": "@cname",
+        "sex|1-2": 1,
+        "state|1-5": 1,
+        "interest|1-8": 1,
+        "birthday": "2000-01-01",
+        "address": "XX省XX市XXXX大学",
+        "time": "09:00"
+      }
+    ],
+    "page": 1,
+    "page_size": 20,
+    "total": 100
+  }
+}
