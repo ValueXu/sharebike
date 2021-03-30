@@ -109,7 +109,7 @@ export default class FormReg extends React.Component {
               'isMarried': false,
               'birthday': moment("2020-8-8"),
               'address':
-                "江西省南昌市青山湖区蛟桥镇玉屏大街江西财经大学麦庐园校区",
+                "XX省XX市XXX区XX镇XXX街XXXX大学XXX校区",
             }}
           >
             <FormItem

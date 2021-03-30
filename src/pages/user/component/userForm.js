@@ -9,7 +9,7 @@ const TextArea = Input.TextArea;
 export default class UserForm extends React.Component {
   constructor(props) {
     super(props);
-    this.setState({});
+    this.state={};
   }
 
   formRef = this.props.formRef;

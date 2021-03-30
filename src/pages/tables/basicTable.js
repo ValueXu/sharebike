@@ -88,7 +88,7 @@ export default class BasicTable extends React.Component {
         state: "1",
         interest: "1",
         birthday: "2000-1-1",
-        address: "江西省南昌市江西财经大学",
+        address: "XX省XX市XXXX大学",
         time: "09:00",
       },
       {
@@ -98,7 +98,7 @@ export default class BasicTable extends React.Component {
         state: "1",
         interest: "1",
         birthday: "2000-1-1",
-        address: "江西省南昌市江西财经大学",
+        address: "XX省XX市XXXX大学",
         time: "09:00",
       },
       {
@@ -108,7 +108,7 @@ export default class BasicTable extends React.Component {
         state: "1",
         interest: "1",
         birthday: "2000-1-1",
-        address: "江西省南昌市江西财经大学",
+        address: "XX省XX市XXXX大学",
         time: "09:00",
       },
     ];

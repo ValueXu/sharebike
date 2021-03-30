@@ -3,10 +3,11 @@ import { Row, Col } from "antd";
 import "./index.less";
 import Util from "../../utils/utils";
 import axios from "axios";
+import { connect } from "react-redux";
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   state = {};
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       username: "ValueXu",
     });
@@ -45,23 +46,23 @@ export default class Header extends React.Component {
         <Row className="header-top">
           {menuType ? (
             <Col span="6" className="logo">
-              <img src="/assets/logo-ant.svg" alt=""/>
+              <img src="/assets/logo-ant.svg" alt="" />
               <span>共享单车管理系统</span>
             </Col>
           ) : (
             ""
           )}
-          <Col span={menuType?"18":"24"}>
-              <span>欢迎，{this.state.username}</span>
-              <a href="/#">退出</a>
-            </Col>
+          <Col span={menuType ? "18" : "24"}>
+            <span>欢迎，{this.state.username}</span>
+            <a href="/#/login">退出</a>
+          </Col>
         </Row>
         {menuType ? (
           ""
         ) : (
           <Row className="breadcrumb">
             <Col span="4" className="breadcrumb-title">
-              首页
+              {this.props.menuName}
             </Col>
             <Col span="20" className="weather">
               <span className="date">{this.state.sysTime}</span>
@@ -76,3 +77,12 @@ export default class Header extends React.Component {
     );
   }
 }
+
+// 简化Redux参数的调用
+const mapStateToProps = (state) => {
+  return {
+    menuName: state.menuName,
+  };
+};
+
+export default connect(mapStateToProps)(Header);

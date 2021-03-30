@@ -4,9 +4,9 @@ import "./index.css";
 //import App from './App';
 import * as serviceWorker from "./serviceWorker";
 import Router from "./router";
-// import configureStore from './redux/store/configureStore'
-// import {Provider} from 'react-redux'
-// const store=configureStore();
+
+import configureStore from "./redux/store/configureStore";
+import { Provider } from "react-redux";
 
 // 通过ConfigProvider设置语言为中文
 import zhCN from "antd/lib/locale/zh_CN";
@@ -15,6 +15,7 @@ import moment from "moment";
 import "moment/locale/zh-cn";
 
 moment.locale("zh-cn");
+const store = configureStore();
 
 ReactDOM.render(
   // <Provider store={store}>
@@ -22,7 +23,9 @@ ReactDOM.render(
   // </Provider>,
   <React.StrictMode>
     <ConfigProvider locale={zhCN}>
-      <Router />
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </ConfigProvider>
   </React.StrictMode>,
   document.getElementById("root")
